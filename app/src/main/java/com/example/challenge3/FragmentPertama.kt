@@ -24,8 +24,12 @@ class FragmentPertama : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnToScreen2.setOnClickListener {
-            it.findNavController().navigate(R.id.action_fragmentPertama_to_fragmentKedua)
+            it.findNavController().navigate(R.id.action_fragmentPertama_to_fragmentKedua2)
         }
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 
