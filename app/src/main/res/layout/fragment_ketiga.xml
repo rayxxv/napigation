@@ -60,7 +60,8 @@
         app:layout_constraintBottom_toTopOf="@id/tvName"
         android:layout_margin="16dp"
         android:text=" "
-        android:textSize="16sp"/>
+        android:textStyle="bold"
+        android:textSize="24sp"/>
 
     <TextView
         android:id="@+id/tvName"

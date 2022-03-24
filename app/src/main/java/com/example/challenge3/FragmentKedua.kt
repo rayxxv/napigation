@@ -1,39 +1,43 @@
 package com.example.challenge3
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.challenge3.databinding.FragmentKeduaBinding
 
 
 class FragmentKedua : Fragment() {
 
-    var _binding: FragmentKeduaBinding? = null
-    val binding get() = _binding!!
+    private var _binding: FragmentKeduaBinding? = null
+    private val binding get() = _binding!!
 
 
     companion object{
-        val EXTRA_NAME = "EXTRA_NAME"
+        const val EXTRA_NAME: String = "EXTRA_NAME"
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentKeduaBinding.inflate(inflater, container, false)
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.btnToScreen3.setOnClickListener {
-            val mBundle = Bundle()
-            val name = binding.etName.text.toString()
-            mBundle.putString(EXTRA_NAME, name)
-            it.findNavController().navigate(R.id.action_fragmentKedua2_to_fragmentKetiga)
+
+            if (binding.etNama.text.isNullOrEmpty()) {
+                Toast.makeText(context, "Please Input Your Name!", Toast.LENGTH_SHORT).show()
+            } else {
+                val mBundle = Bundle().apply {
+                    putString(EXTRA_NAME, binding.etNama.text.toString())
+                }
+                findNavController().navigate(R.id.action_fragmentKedua2_to_fragmentKetiga,mBundle)
+            }
         }
     }
     override fun onDestroy() {

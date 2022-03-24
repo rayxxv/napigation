@@ -18,72 +18,91 @@
         android:textColor="@color/black"
         android:textSize="36sp"/>
 
-    <EditText
-        android:id="@+id/etMassa"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etWrapMassa"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/etGravitasi"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="36dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginHorizontal="32dp"
+        android:hint="Masukan Massa"
         android:inputType="number"
-        android:hint="Masukan Panjang"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvScreen4"
+        >
 
-    <EditText
-        android:id="@+id/etGravitasi"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/etTinggi"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="36dp"
-        android:inputType="number"
-        android:hint="Masukan Lebar"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMassa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/etTinggi"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etWrapGravitasi"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/btnBackScreen3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="36dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="32dp"
+        android:hint="Masukan Gravitasi"
         android:inputType="number"
-        android:hint="Masukan Tinggi"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etWrapMassa">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etGravitasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etWrapTinggi"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="8dp"
+        android:hint="Masukan Ketinggian"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etWrapGravitasi">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etTinggi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnBackScreen3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Back To Screen 3"
-        android:padding="14dp"
-        android:textSize="16sp"
         android:backgroundTint="@color/biru"
-        />
+        android:padding="14dp"
+        android:text="Back To Screen 3"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etWrapTinggi" />
 
     <TextView
-        android:id="@+id/tvVol"
+        android:id="@+id/tvPotensial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="0dp"
         android:text=" "
-        android:layout_margin="0dp" />
-
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnBackScreen3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Volume Balok \n"
-        android:layout_margin="0dp" />
+        app:layout_constraintTop_toBottomOf="@+id/etWrapTinggi" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
