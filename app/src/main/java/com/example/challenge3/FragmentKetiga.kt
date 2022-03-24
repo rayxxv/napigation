@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.challenge3.databinding.FragmentKetigaBinding
 import com.sennohananto.intent.EpParcelable
 
 class FragmentKetiga : Fragment() {
     private var _binding: FragmentKetigaBinding? = null
     private val binding get() = _binding!!
+    private val args : FragmentKetigaArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +28,7 @@ class FragmentKetiga : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val aName = arguments?.getString(FragmentKedua.EXTRA_NAME)
+        val aName = args.name
         val model = arguments?.getParcelable<EpParcelable>(FragmentKeempat.POTENSIAL)
 
         if (aName != null){
@@ -37,13 +39,13 @@ class FragmentKetiga : Fragment() {
             binding.tvName.text = "Selamat Datang $aName"
         }
         else{
-           val energiPotensial = model?.massa.toString().toInt() * model?.gravitasi.toString().toInt() * model?.tinggi.toString().toInt()
+
             binding.tvName.visibility = View.GONE
             binding.btnToScreen4.visibility = View.GONE
             binding.tvMassa.text = "Nilai Massa Input = ${model?.massa}"
             binding.tvGravitasi.text = "Nilai Gravitasi Input = ${model?.gravitasi}"
             binding.tvTinggi.text = "Nilai Tinggi Input = ${model?.tinggi}"
-            binding.tvEP.text = "Nilai Energi Potensial = $energiPotensial"
+
 
         }
         binding.btnToScreen4.setOnClickListener {

@@ -14,11 +14,8 @@ class FragmentKedua : Fragment() {
 
     private var _binding: FragmentKeduaBinding? = null
     private val binding get() = _binding!!
+    val name = binding.etNama.text.toString()
 
-
-    companion object{
-        const val EXTRA_NAME: String = "EXTRA_NAME"
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,13 +28,12 @@ class FragmentKedua : Fragment() {
         binding.btnToScreen3.setOnClickListener {
 
             if (binding.etNama.text.isNullOrEmpty()) {
-                Toast.makeText(context, "Please Input Your Name!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Harap Masukan Nama Anda!", Toast.LENGTH_SHORT).show()
             } else {
-                val mBundle = Bundle().apply {
-                    putString(EXTRA_NAME, binding.etNama.text.toString())
-                }
-                findNavController().navigate(R.id.action_fragmentKedua2_to_fragmentKetiga,mBundle)
+                val action = FragmentKeduaDirections.actionFragmentKedua2ToFragmentKetiga(name)
+                findNavController().navigate(action)
             }
+
         }
     }
     override fun onDestroy() {
