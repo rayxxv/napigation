@@ -33,7 +33,6 @@ class FragmentKedua : Fragment() {
                 val action = FragmentKeduaDirections.actionFragmentKedua2ToFragmentKetiga(name)
                 findNavController().navigate(action)
             }
-
         }
     }
     override fun onDestroy() {
