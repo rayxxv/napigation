@@ -31,7 +31,7 @@ class FragmentKedua : Fragment() {
         binding.btnToScreen3.setOnClickListener {
 
             if (binding.etNama.text.isNullOrEmpty()) {
-                Toast.makeText(context, "Please Input Your Name!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Mohon Masukan Nama Anda !", Toast.LENGTH_SHORT).show()
             } else {
                 val mBundle = Bundle().apply {
                     putString(EXTRA_NAME, binding.etNama.text.toString())
