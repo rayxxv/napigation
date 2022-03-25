@@ -17,7 +17,6 @@ class FragmentKeempat : Fragment() {
 
     var _binding: FragmentKeempatBinding? = null
     val binding get() = _binding!!
-    private val args : FragmentKetigaArgs by navArgs()
 
 
     override fun onCreateView(
@@ -35,9 +34,9 @@ class FragmentKeempat : Fragment() {
                 Toast.makeText(requireContext(), "Ada Kolom Yang Kosong", Toast.LENGTH_SHORT).show()
             }
             else {
-                val massa = binding.etMassa.text.toString().toInt()
-                val gravitasi = binding.etGravitasi.text.toString().toInt()
-                val tinggi = binding.etTinggi.text.toString().toInt()
+                val massa = binding.etMassa.text.toString().toDouble()
+                val gravitasi = binding.etGravitasi.text.toString().toDouble()
+                val tinggi = binding.etTinggi.text.toString().toDouble()
                 val hasil = TekananHidrostatis(massa, gravitasi, tinggi)
                 val action = FragmentKeempatDirections.actionFragmentKeempatToFragmentKetiga(null, hasil)
                 findNavController().navigate(action)

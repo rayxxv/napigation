@@ -38,7 +38,7 @@ class FragmentKetiga : Fragment() {
             binding.tvName.text = "Selamat Datang $aName"
         }
         else{
-            val tekananHidrostatis= model?.massa.toString().toInt() * model?.gravitasi.toString().toInt() * model?.tinggi.toString().toInt()
+            val tekananHidrostatis= model?.massa.toString().toDouble() * model?.gravitasi.toString().toDouble() * model?.tinggi.toString().toDouble()
             binding.tvName.visibility = View.GONE
             binding.btnToScreen4.visibility = View.GONE
             binding.tvMassa.text = "Nilai Massa Input = ${model?.massa}"

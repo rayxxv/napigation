@@ -49,7 +49,7 @@
             android:id="@+id/action_fragmentKeempat_to_fragmentKetiga"
             app:destination="@id/fragmentKetiga" />
         <argument
-            android:name="hasil"
+            android:name="nama"
             app:argType="string"
             app:nullable="true" />
     </fragment>
