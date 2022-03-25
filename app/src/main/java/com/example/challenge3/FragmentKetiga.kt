@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.challenge3.databinding.FragmentKetigaBinding
-import com.sennohananto.intent.EpParcelable
+import com.example.challenge3.direct.TekananHidrostatis
 
 class FragmentKetiga : Fragment() {
     private var _binding: FragmentKetigaBinding? = null
@@ -29,7 +29,7 @@ class FragmentKetiga : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val aName = args.name
-        val model = arguments?.getParcelable<EpParcelable>(FragmentKeempat.POTENSIAL)
+        val model = args.hasil
 
         if (aName != null){
             binding.tvEP.visibility = View.GONE
@@ -39,7 +39,7 @@ class FragmentKetiga : Fragment() {
             binding.tvName.text = "Selamat Datang $aName"
         }
         else{
-
+            val energiPotensial = model?.massa.toString().toInt() * model?.gravitasi.toString().toInt() * model?.tinggi.toString().toInt()
             binding.tvName.visibility = View.GONE
             binding.btnToScreen4.visibility = View.GONE
             binding.tvMassa.text = "Nilai Massa Input = ${model?.massa}"
@@ -49,7 +49,8 @@ class FragmentKetiga : Fragment() {
 
         }
         binding.btnToScreen4.setOnClickListener {
-            findNavController().navigate(R.id.action_fragmentKetiga_to_fragmentKeempat)
+            val action = FragmentKetigaDirections.actionFragmentKetigaToFragmentKeempat(aName)
+            findNavController().navigate(action)
         }
     }
 

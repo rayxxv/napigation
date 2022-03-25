@@ -30,7 +30,7 @@ class FragmentKedua : Fragment() {
             if (binding.etNama.text.isNullOrEmpty()) {
                 Toast.makeText(context, "Harap Masukan Nama Anda!", Toast.LENGTH_SHORT).show()
             } else {
-                val action = FragmentKeduaDirections.actionFragmentKedua2ToFragmentKetiga(name)
+                val action = FragmentKeduaDirections.actionFragmentKedua2ToFragmentKetiga(name,null)
                 findNavController().navigate(action)
             }
 
