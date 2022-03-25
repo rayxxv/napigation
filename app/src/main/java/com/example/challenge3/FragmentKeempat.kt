@@ -7,19 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.challenge3.databinding.FragmentKeempatBinding
-import com.example.challenge3.databinding.FragmentKetigaBinding
-import com.sennohananto.intent.EpParcelable
+import com.example.challenge3.direct.TekananHidrostatis
+
 
 
 class FragmentKeempat : Fragment() {
 
     var _binding: FragmentKeempatBinding? = null
     val binding get() = _binding!!
+    private val args : FragmentKetigaArgs by navArgs()
 
-    companion object{
-        const val POTENSIAL = "POTENSIAL"
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,11 +38,9 @@ class FragmentKeempat : Fragment() {
                 val massa = binding.etMassa.text.toString().toInt()
                 val gravitasi = binding.etGravitasi.text.toString().toInt()
                 val tinggi = binding.etTinggi.text.toString().toInt()
-                val potensial = EpParcelable(massa, gravitasi, tinggi)
-                val value = Bundle().apply {
-                    putParcelable(POTENSIAL, potensial)
-                }
-                findNavController().navigate(R.id.action_fragmentKeempat_to_fragmentKetiga, value)
+                val hasil = TekananHidrostatis(massa, gravitasi, tinggi)
+                val action = FragmentKeempatDirections.actionFragmentKeempatToFragmentKetiga(null, hasil)
+                findNavController().navigate(action)
             }
 
         }
